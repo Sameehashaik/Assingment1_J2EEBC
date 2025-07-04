@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Evidence</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Register New Digital Evidence</h2>
+<form th:action="@{/evidence/save}" th:object="${evidence}" method="post">
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" required/><br/>
+    <label>Source Officer:</label>
+    <input type="text" th:field="*{sourceOfficer}" required/><br/>
+    <label>Date of Acquisition:</label>
+    <input type="date" th:field="*{dateOfAcquisition}" required/><br/>
+    <label>Custody Status:</label>
+    <select th:field="*{custodyStatus}">
+        <option value="In Custody">In Custody</option>
+        <option value="Released">Released</option>
+    </select><br/>
+    <label>Last Custodian:</label>
+    <input type="text" th:field="*{lastCustodian}" required/><br/>
+    <label>Encrypted:</label>
+    <input type="checkbox" th:field="*{encrypted}"/><br/>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

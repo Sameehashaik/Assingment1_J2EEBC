@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>In Custody Evidence</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Evidence - In Custody Only</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Source Officer</th>
+        <th>Date of Acquisition</th>
+        <th>Custody Status</th>
+        <th>Last Custodian</th>
+        <th>Encrypted</th>
+    </tr>
+    <tr th:each="ev : ${evidenceList}">
+        <td th:text="${ev.evidenceId}"></td>
+        <td th:text="${ev.description}"></td>
+        <td th:text="${ev.sourceOfficer}"></td>
+        <td th:text="${ev.dateOfAcquisition}"></td>
+        <td th:text="${ev.custodyStatus}"></td>
+        <td th:text="${ev.lastCustodian}"></td>
+        <td th:text="${ev.encrypted} ? 'Yes' : 'No'"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(evidenceList)}">
+        <td colspan="7">No evidence currently in custody.</td>
+    </tr>
+</table>
+</body>
+</html>

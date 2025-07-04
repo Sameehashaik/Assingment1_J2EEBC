@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ca.evidence</groupId>
+  <artifactId>digital-evidence-app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <java.version>17</java.version>
+    <spring.version>6.1.8</spring.version>
+    <spring.data.jpa.version>3.2.5</spring.data.jpa.version>
+    <thymeleaf.version>3.1.2.RELEASE</thymeleaf.version>
+    <hibernate.version>6.4.4.Final</hibernate.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Spring BOM for unified Spring versioning -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>${spring.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- Hibernate BOM (optional, if you want to keep versions in sync) -->
+      <!--
+      <dependency>
+        <groupId>org.hibernate.orm</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+      </dependency>
+      -->
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>digital-evidence-ejb</module>
+    <module>digital-evidence-web</module>
+    <module>digital-evidence-ear</module>
+  </modules>
+</project>
